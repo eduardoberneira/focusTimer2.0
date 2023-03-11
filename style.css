@@ -1,0 +1,193 @@
+:root {
+  font-size: 62.5%;
+
+  --light-text-color: #323238;
+  --light-bg-card-off: #E1E1E6;
+  --light-bg-card-on: #02799D;
+  --white: #fff;
+
+  --bg-dark: #121214;
+  --dark-bg-card-off: #29292E;
+  --dark-bg-card-on: #0A3442;
+  --dark-text: #C4C4CC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  position: relative;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  color: var(--light-text-color)
+}
+
+main {
+  display: flex;
+  gap: clamp(0.5rem, 1rem + 5vw, 19.2rem)
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 1.1;
+}
+
+.timerButtons button {
+  transition: 0.2s;
+}
+
+.timerAndButtons {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 0.5rem + 2vw, 4.8rem);
+  align-self: center;
+}
+
+.timer {
+  font-size: clamp(5rem, 5rem + 5vw, 12.6rem);
+  font-weight: 500;
+  line-height: clamp(5rem, 5rem + 5vw, 14.8rem);
+}
+
+.timerButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timerButtons svg {
+  width: clamp(2rem, 2rem + 2vw, 4.8rem);
+  height: clamp(2rem, 2rem + 2vw, 4.8rem);
+}
+
+.sounds {
+  display: grid;
+  grid-template-areas: "A B" "C D";
+  gap: 3.2rem;
+}
+
+.sounds button {
+  width: clamp(5rem, 5rem + 8vw, 13.8rem);
+  height: clamp(5rem, 5rem + 8vw, 15.2rem);
+  border-radius: 24px;
+  transition: 0.3s;
+}
+
+.sounds button svg {
+  width: clamp(2rem, 2rem + 2vw, 100%);
+}
+
+.volumeSlider {
+  display: block;
+  margin: clamp(0rem, 0rem + 1vw, 3.2rem) auto 0rem;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 5px;
+  width: clamp(3.5rem, 3.5rem + 4vw, 9rem);
+  height: 0.6rem;
+  background-color: var(--light-text-color);
+
+}
+
+.volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--light-text-color);
+  border-radius: 50%;
+}
+
+button.cardOnLight .volumeSlider,
+button.cardOnLight .volumeSlider::-webkit-slider-thumb {
+  background-color: var(--white);
+}
+
+
+.hide {
+  display: none;
+}
+
+.darkTheme .playOn svg path,
+.playOn svg path {
+  fill: var(--light-bg-card-on)
+}
+
+.cardLight {
+  background: var(--light-bg-card-off);
+}
+
+
+.cardOnLight {
+  background: var(--light-bg-card-on);
+}
+
+.cardOnLight svg path {
+  fill: var(--white);
+}
+
+
+.theme {
+  position: absolute;
+  right: clamp(.2rem, .2rem + 5vw, 6.4rem);
+  top: clamp(.2rem, .2rem + 5vh, 6.4rem);
+  cursor: pointer;
+  transition: scale .5s;
+}
+
+.theme:hover {
+  scale: 1.2;
+}
+
+body.darkTheme {
+  background-color: var(--bg-dark);
+  color: var(--white);
+}
+
+
+.cardDark svg path,
+.darkTheme .timerButtons path {
+  fill: var(--dark-text);
+}
+
+
+button.cardDark .volumeSlider,
+button.cardDark .volumeSlider::-webkit-slider-thumb {
+  background-color: var(--white);
+}
+
+.cardDark {
+  background-color: var(--dark-bg-card-off);
+}
+
+.cardOnDark {
+  background: var(--dark-bg-card-on);
+}
+
+.cardOnDark svg path {
+  fill: var(--white);
+}
+
+
+@media(max-width: 500px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timer {
+    align-items: center;
+    justify-content: center;
+  }
+
+}
